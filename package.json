@@ -6,7 +6,10 @@
   "scripts": {
     "start": "babel-node index.js",
     "test-integration": "mocha --opts tests/integration/mocha.opts tests/integration/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-unit": "mocha --opts tests/unit/mocha.opts tests/unit/**/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "eslint '**/*.js' --fix"
   },
   "author": "walter buczacka",
   "license": "ISC",
@@ -21,7 +24,13 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "mocha": "^3.4.2",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "testdouble": "^3.2.3"
   }
 }
