@@ -11,4 +11,11 @@ export default (sequilize, DataType) => sequilize.define('Books', {
       notEmpty: true,
     },
   },
+  description: {
+    type: DataType.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
 });
