@@ -3,15 +3,22 @@ import express from 'express';
 import config from './config/config';
 import datasource from './config/datasource';
 import booksRouter from './routes/books';
+import usersRouter from './routes/users';
+import authRouter from './routes/auth';
+import authorization from './auth';
 
 const app = express();
 
 app.config = config;
 app.datasource = datasource(app);
-const Books = app.datasource.models.Books; // otra forma de acceder al array
 app.set('port', 7000);
 app.use(parser.json());
-
-booksRouter(app, Books);
+//destructuring?
+const auth = authorization(app);
+app.use(auth.initialize());
+app.auth = auth;
+booksRouter(app);
+usersRouter(app);
+authRouter(app);
 
 export default app;
