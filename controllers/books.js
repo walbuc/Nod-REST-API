@@ -7,9 +7,8 @@ const defaultResponse = (data, statusCode = HttpStatus.OK) => ({
   statusCode,
 });
 
-const errorResponse = (message, statusCode = HttpStatus.BAD_REQUEST) => {
+const errorResponse = (message, statusCode = HttpStatus.BAD_REQUEST) =>
   defaultResponse({ error: message }, statusCode);
-};
 
 class BooksController {
   constructor(Books) { // change name model DI
